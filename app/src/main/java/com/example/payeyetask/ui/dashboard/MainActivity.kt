@@ -1,7 +1,8 @@
-package com.example.payeyetask
+package com.example.payeyetask.ui.dashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.payeyetask.R
 
 class MainActivity : AppCompatActivity() {
 
