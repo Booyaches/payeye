@@ -1,4 +1,4 @@
-package com.example.payeyetask.ui.dashboard.base
+package com.example.payeyetask.ui.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
