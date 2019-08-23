@@ -6,6 +6,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.dashboard.MainActivity">
 
+    <TextView
+            android:id="@+id/tv_guide_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/guide_text_size"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/guide_text_margin"
+            android:text="@string/dashboard_guide_text"
+            android:gravity="center"/>
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_employee"
             android:layout_width="match_parent"

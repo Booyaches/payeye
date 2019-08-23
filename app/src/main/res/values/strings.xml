@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PayEye Task</string>
+    <string name="dashboard_guide_text">Click \"+\" to add a new employee</string>
 </resources>

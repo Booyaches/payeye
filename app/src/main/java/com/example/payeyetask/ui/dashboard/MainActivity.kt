@@ -2,6 +2,8 @@ package com.example.payeyetask.ui.dashboard
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.payeyetask.R
@@ -20,12 +22,19 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun bindViewHolder() {
         viewModel.employees.observe(this, Observer {
-            rv_employee.apply {
-                layoutManager = LinearLayoutManager(this@MainActivity)
-                adapter = EmployeeListAdapter(it, this@MainActivity, onListItemClick)
+            if(it.isNullOrEmpty()) {
+                tv_guide_text.visibility = VISIBLE
+            } else {
+                tv_guide_text.visibility = GONE
+                rv_employee.apply {
+                    layoutManager = LinearLayoutManager(this@MainActivity)
+                    adapter = EmployeeListAdapter(it, this@MainActivity, onListItemClick)
+                }
             }
         })
     }
+
+
 
     private val onListItemClick: (View, Int, Int) -> Unit = { _, i, _ ->
 
