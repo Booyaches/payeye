@@ -1,6 +1,7 @@
 package com.example.payeyetask.ui.dashboard
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.example.payeyetask.R
 import com.example.payeyetask.ui.base.BaseActivity
 import org.koin.android.ext.android.inject
@@ -15,7 +16,8 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
     }
 
     override fun bindViewHolder() {
+        viewModel.employees.observe(this, Observer {
 
-
+        })
     }
 }
