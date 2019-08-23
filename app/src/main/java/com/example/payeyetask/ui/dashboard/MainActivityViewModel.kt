@@ -8,8 +8,7 @@ class MainActivityViewModel(
     application: Application,
     repository: MainActivityRepository,
     coroutineDispatcher: CoroutineDispatcher
-) : BaseViewModel(application, repository, coroutineDispatcher) {
-
+) : BaseViewModel(application, coroutineDispatcher) {
 
 
 }
