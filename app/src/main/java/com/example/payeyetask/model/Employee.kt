@@ -1,6 +1,5 @@
 package com.example.payeyetask.model
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -11,7 +10,4 @@ data class Employee(
     val name: String,
     val surname: String,
     val age: Int,
-    val gender: Gender,
-    @Embedded
-    val address: Address
-    )
+    val gender: Gender)
