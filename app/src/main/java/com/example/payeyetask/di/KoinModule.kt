@@ -3,6 +3,8 @@ package com.example.payeyetask.di
 import com.example.payeyetask.persistance.EmployeeDatabase
 import com.example.payeyetask.ui.dashboard.MainActivityRepository
 import com.example.payeyetask.ui.dashboard.MainActivityViewModel
+import com.example.payeyetask.ui.editor.EditorActivityRepository
+import com.example.payeyetask.ui.editor.EditorActivityViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -23,7 +25,10 @@ class KoinModule {
         viewModel { MainActivityViewModel(androidApplication(), get() as MainActivityRepository, coroutineDispatcher) }
     }
 
-    val addEmployeeModule = module{ }
+    val editorModule = module{
+        factory { EditorActivityRepository(get() as EmployeeDatabase)}
+        viewModel { EditorActivityViewModel(androidApplication(), get() as EditorActivityRepository, coroutineDispatcher) }
+    }
 
     val editEmployeeModule = module { }
 }
