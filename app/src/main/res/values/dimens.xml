@@ -10,4 +10,5 @@
     <dimen name="editor_age_width">100dp</dimen>
     <dimen name="editor_gender_width">120dp</dimen>
     <dimen name="editor_input_margin_top">15dp</dimen>
+    <dimen name="editor_number_width">120dp</dimen>
 </resources>

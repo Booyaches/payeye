@@ -4,4 +4,11 @@
     <string name="editor_name">Name</string>
     <string name="editor_surname">Surname</string>
     <string name="editor_age">Age</string>
+    <string name="editor_street">Street</string>
+    <string name="editor_building">Building</string>
+    <string name="editor_apartament">Apartament</string>
+    <string name="editor_city">City</string>
+    <string name="editor_zip">Zip code</string>
+    <string name="btn_add_address">Add address</string>
+    <string name="btn_save">Save</string>
 </resources>

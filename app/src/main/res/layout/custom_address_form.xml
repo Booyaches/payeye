@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_street"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/editor_street">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_stree"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_building"
+            android:layout_width="@dimen/editor_number_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/editor_building">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_building"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_apartament"
+            android:layout_width="@dimen/editor_number_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/editor_apartament">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_apartament"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/editor_city">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_zip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/editor_zip">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_zip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</merge>
