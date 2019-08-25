@@ -11,4 +11,5 @@
     <string name="editor_zip">Zip code</string>
     <string name="btn_add_address">Add address</string>
     <string name="btn_save">Save</string>
+    <string name="editor_address">Address</string>
 </resources>

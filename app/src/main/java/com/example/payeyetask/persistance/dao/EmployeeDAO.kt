@@ -9,7 +9,7 @@ import com.example.payeyetask.model.Employee
 interface EmployeeDAO {
 
     @Insert
-    suspend fun addNewEmployee(employee: Employee)
+    suspend fun addNewEmployee(employee: Employee) : Long
 
     @Query("SELECT * from employee where id = :id")
     suspend fun getEmployeeById(id: Int): Employee?

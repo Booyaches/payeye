@@ -23,6 +23,12 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
         initListeners()
     }
 
+    override fun onResume() {
+        viewModel.updateEmployees()
+        super.onResume()
+
+    }
+
     private fun initListeners(){
         fab_add_employee.setOnClickListener {
             val intent = Intent(this, EditorActivity::class.java)

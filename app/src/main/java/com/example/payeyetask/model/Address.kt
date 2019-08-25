@@ -22,5 +22,5 @@ data class Address(
     val apartmentNo: Int,
     val city: String,
     val zipCode: String,
-    val employeeId: Long
+    var employeeId: Long
 )

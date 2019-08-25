@@ -15,12 +15,15 @@ class MainActivityViewModel(
     private val coroutineDispatcher: CoroutineDispatcher
 ) : BaseViewModel(application, coroutineDispatcher) {
 
-    val employees : LiveData<List<Employee>> = liveData {
-        viewModelScope.launch {
-            val employeeList = repository.getAllEmployees()
-            emit(employeeList)
+    lateinit var employees: LiveData<List<Employee>>
+
+    fun updateEmployees() {
+        employees = liveData {
+            viewModelScope.launch {
+                val employeeList = repository.getAllEmployees()
+                emit(employeeList)
+            }
         }
+
     }
-
-
 }

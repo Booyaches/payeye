@@ -11,4 +11,8 @@
     <dimen name="editor_gender_width">120dp</dimen>
     <dimen name="editor_input_margin_top">15dp</dimen>
     <dimen name="editor_number_width">120dp</dimen>
+    <dimen name="editor_address_title_size">20sp</dimen>
+    <dimen name="editor_address_title_margin">10dp</dimen>
+    <dimen name="editor_margin_bottom">20dp</dimen>
+    <dimen name="editor_margin_top">10dp</dimen>
 </resources>
