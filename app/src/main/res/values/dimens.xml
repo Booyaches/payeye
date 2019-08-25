@@ -6,4 +6,8 @@
     <dimen name="item_text_size">16sp</dimen>
     <dimen name="guide_text_size">17sp</dimen>
     <dimen name="guide_text_margin">25dp</dimen>
+    <dimen name="editor_margin">15dp</dimen>
+    <dimen name="editor_age_width">100dp</dimen>
+    <dimen name="editor_gender_width">120dp</dimen>
+    <dimen name="editor_input_margin_top">15dp</dimen>
 </resources>
