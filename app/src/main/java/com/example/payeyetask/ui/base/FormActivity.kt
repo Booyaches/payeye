@@ -14,11 +14,11 @@ abstract class FormActivity<VIEW_MODEL_TYPE : BaseViewModel> : BaseActivity<VIEW
     }
 
     private fun setToolbar() {
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
-        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
-    protected fun initSpinner() = ArrayAdapter.createFromResource(
+    protected fun initSpinner() : ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
         this,
         R.array.gender_array,
         android.R.layout.simple_spinner_item
