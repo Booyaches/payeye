@@ -1,17 +1,13 @@
 package com.example.payeyetask.ui.creator
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.View.VISIBLE
-import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import com.example.payeyetask.R
 import com.example.payeyetask.model.Address
 import com.example.payeyetask.model.Gender
-import com.example.payeyetask.ui.base.BaseActivity
 import com.example.payeyetask.ui.base.FormActivity
 import com.example.payeyetask.utils.KEY_EMPLOYEE_ID
 import com.example.payeyetask.view.AddressForm
