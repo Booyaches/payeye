@@ -1,4 +1,4 @@
-<h1>PayEye Recruitment Task<h1>
+<h1>PayEye Recruitment Task</h1>
 
 In order to open the project simply clone the repository and open it though Android Studio. 
 
