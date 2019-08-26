@@ -55,7 +55,8 @@
                     android:layout_width="@dimen/editor_age_width"
                     android:layout_height="match_parent"
                     android:inputType="number"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

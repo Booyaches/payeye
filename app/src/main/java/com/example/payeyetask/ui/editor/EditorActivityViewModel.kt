@@ -8,6 +8,7 @@ import com.example.payeyetask.model.Address
 import com.example.payeyetask.model.Employee
 import com.example.payeyetask.model.Gender
 import com.example.payeyetask.ui.base.BaseViewModel
+import com.example.payeyetask.utils.FormValidator
 import com.example.payeyetask.view.AddressForm
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
@@ -19,9 +20,15 @@ class EditorActivityViewModel(
     val addressForms = mutableListOf<AddressForm>()
     val employeeData = MutableLiveData<Employee>()
     val employeeAddresses = MutableLiveData<List<Address>>()
+    val formValidator = MutableLiveData<Boolean>()
 
-    fun updateEmployee(name: String, surname: String, age: Int, gender: Gender) = viewModelScope.launch {
-        repository.updateEmployee(employeeData.value?.id!!, name, surname, age, gender)
+    fun updateEmployee(name: String, surname: String, age: String, gender: Gender) = viewModelScope.launch {
+        if(!FormValidator.validateForm(name, surname, age, addressForms)) {
+            formValidator.postValue(false)
+            return@launch
+        } else
+            formValidator.postValue(true)
+        repository.updateEmployee(employeeData.value?.id!!, name, surname, Integer.parseInt(age), gender)
         repository.removeAllEmployeeAddresses(employeeData.value?.id!!)
         val addresses = addressForms.map { addressForm -> addressForm.getAddressObject() }
         addresses.map { address ->
@@ -38,4 +45,6 @@ class EditorActivityViewModel(
         employeeData.postValue(employee)
         employeeAddresses.postValue(addresses)
     }
+
+
 }

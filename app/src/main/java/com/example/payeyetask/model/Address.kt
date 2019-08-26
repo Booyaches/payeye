@@ -16,7 +16,7 @@ import androidx.room.PrimaryKey
 )
 data class Address(
     val street: String,
-    val building: String,
+    val building: Int,
     val apartmentNo: Int,
     val city: String,
     val zipCode: String,

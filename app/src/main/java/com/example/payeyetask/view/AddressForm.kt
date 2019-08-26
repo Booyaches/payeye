@@ -15,11 +15,11 @@ class AddressForm @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    lateinit var streetEt : TextInputEditText
-    lateinit var buildingEt : TextInputEditText
-    lateinit var apartamentEt : TextInputEditText
-    lateinit var zipEt : TextInputEditText
-    lateinit var cityEt : TextInputEditText
+    lateinit var streetEt: TextInputEditText
+    lateinit var buildingEt: TextInputEditText
+    lateinit var apartamentEt: TextInputEditText
+    lateinit var zipEt: TextInputEditText
+    lateinit var cityEt: TextInputEditText
 
     init {
         LayoutInflater.from(context)
@@ -29,7 +29,7 @@ class AddressForm @JvmOverloads constructor(
         findViews()
     }
 
-    private fun findViews(){
+    private fun findViews() {
         streetEt = findViewById(R.id.et_stree)
         buildingEt = findViewById(R.id.et_building)
         apartamentEt = findViewById(R.id.et_apartament)
@@ -38,21 +38,28 @@ class AddressForm @JvmOverloads constructor(
     }
 
 
-    fun getAddressObject() : Address? {
-         return Address(
-             streetEt.editableText.toString(),
-             buildingEt.editableText.toString(),
-             Integer.parseInt(apartamentEt.editableText.toString()),
-             cityEt.editableText.toString(),
-             zipEt.editableText.toString(), null)
+    fun getAddressObject(): Address? {
+        return Address(
+            streetEt.editableText.toString(),
+            Integer.parseInt(buildingEt.editableText.toString()),
+            Integer.parseInt(apartamentEt.editableText.toString()),
+            cityEt.editableText.toString(),
+            zipEt.editableText.toString(), null
+        )
     }
 
     fun setAddress(address: Address) {
         streetEt.text = SpannableStringBuilder(address.street)
-        buildingEt.text = SpannableStringBuilder(address.building)
+        buildingEt.text = SpannableStringBuilder(address.building.toString())
         apartamentEt.text = SpannableStringBuilder(address.apartmentNo.toString())
         zipEt.text = SpannableStringBuilder(address.zipCode)
         cityEt.text = SpannableStringBuilder(address.city)
     }
+
+    fun isFormValid() = !streetEt.text.isNullOrBlank() &&
+            !buildingEt.text.isNullOrBlank() &&
+            !apartamentEt.text.isNullOrBlank() &&
+            !zipEt.text.isNullOrBlank() &&
+            !cityEt.text.isNullOrBlank()
 
 }

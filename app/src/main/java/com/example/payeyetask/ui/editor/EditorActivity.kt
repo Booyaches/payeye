@@ -1,5 +1,6 @@
 package com.example.payeyetask.ui.creator
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
@@ -9,12 +10,13 @@ import com.example.payeyetask.R
 import com.example.payeyetask.model.Address
 import com.example.payeyetask.model.Gender
 import com.example.payeyetask.ui.base.BaseActivity
+import com.example.payeyetask.ui.base.FormActivity
 import com.example.payeyetask.utils.KEY_EMPLOYEE_ID
 import com.example.payeyetask.view.AddressForm
 import kotlinx.android.synthetic.main.activity_editor.*
 import org.koin.android.ext.android.inject
 
-class EditorActivity : BaseActivity<EditorActivityViewModel>(){
+class EditorActivity : FormActivity<EditorActivityViewModel>(){
     override val layoutId = R.layout.activity_editor
     override val viewModel: EditorActivityViewModel by inject()
 
@@ -36,15 +38,6 @@ class EditorActivity : BaseActivity<EditorActivityViewModel>(){
         btn_save.setOnClickListener { updateEmployee() }
     }
 
-    private fun initSpinner() = ArrayAdapter.createFromResource(
-        this,
-        R.array.gender_array,
-        android.R.layout.simple_spinner_item
-    ).also { adapter ->
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_gender.adapter = adapter
-    }
-
     override fun bindViewHolder() {
         viewModel.employeeData.observe(this, Observer {
             et_name.text = SpannableStringBuilder(it.name)
@@ -54,6 +47,13 @@ class EditorActivity : BaseActivity<EditorActivityViewModel>(){
         })
         viewModel.employeeAddresses.observe(this, Observer {
             it.forEach{address -> addAddressForm(address)}
+        })
+        viewModel.formValidator.observe(this, Observer {
+            if (!it) {
+                showFormInvalidDialog()
+            } else {
+                this.finish()
+            }
         })
     }
 
@@ -67,14 +67,11 @@ class EditorActivity : BaseActivity<EditorActivityViewModel>(){
 
     private fun updateEmployee(){
         viewModel.updateEmployee(
-
             et_name.editableText.toString(),
             et_surname.editableText.toString(),
-            Integer.parseInt(et_age.editableText.toString()),
+            et_age.editableText.toString(),
             Gender.values()[spinner_gender.selectedItemPosition]
         )
         this.finish()
     }
-
-
 }

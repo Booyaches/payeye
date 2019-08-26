@@ -12,4 +12,7 @@
     <string name="btn_add_address">Add address</string>
     <string name="btn_save">Save</string>
     <string name="editor_address">Address</string>
+    <string name="editor_not_valid">Some fields are empty!</string>
+    <string name="editor_not_ok">OK</string>
+    <string name="editor_not_error">Error</string>
 </resources>
