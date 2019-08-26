@@ -39,7 +39,7 @@ class EmployeeListAdapter(
     override fun getItemCount() = employees.size
 
 
-    //override fun getItemId(position: Int) = employees[position].id
+    override fun getItemId(position: Int) = employees[position].id!!
 
     fun getItemAtPosition(position: Int) = employees[position]
 

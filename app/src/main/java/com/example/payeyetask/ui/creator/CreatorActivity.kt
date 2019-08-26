@@ -10,9 +10,9 @@ import com.example.payeyetask.view.AddressForm
 import kotlinx.android.synthetic.main.activity_editor.*
 import org.koin.android.ext.android.inject
 
-class CreatorActivity : BaseActivity<EditorActivityViewModel>(){
+class CreatorActivity : BaseActivity<CreatorActivityViewModel>(){
     override val layoutId = R.layout.activity_editor
-    override val viewModel: EditorActivityViewModel by inject()
+    override val viewModel: CreatorActivityViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

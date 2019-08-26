@@ -2,6 +2,7 @@ package com.example.payeyetask.ui.dashboard
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -11,6 +12,7 @@ import com.example.payeyetask.R
 import com.example.payeyetask.ui.base.BaseActivity
 import com.example.payeyetask.ui.creator.CreatorActivity
 import com.example.payeyetask.ui.creator.EditorActivity
+import com.example.payeyetask.utils.KEY_EMPLOYEE_ID
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -27,7 +29,6 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
     override fun onResume() {
         viewModel.updateEmployees()
         super.onResume()
-
     }
 
     private fun initListeners(){
@@ -54,6 +55,10 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
     }
 
     private val onListItemClick: (View, Int, Int) -> Unit = { _, i, _ ->
-
+        viewModel.employees.value?.let {
+            val intent = Intent(this, EditorActivity::class.java)
+            intent.putExtra(KEY_EMPLOYEE_ID, it[i].id)
+            startActivity(intent)
+        }
     }
 }

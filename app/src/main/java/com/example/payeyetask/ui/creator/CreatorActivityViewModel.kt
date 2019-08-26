@@ -17,17 +17,15 @@ class CreatorActivityViewModel(
 
     val addressForms = mutableListOf<AddressForm>()
 
-    fun saveEmployee(name: String, surname: String, age: Int, gender: Gender) = viewModelScope.launch {
-        val employeeId = repository.saveEmployee(Employee(name, surname, age, gender))
-        val addresses = addressForms.map { addressForm -> addressForm.getAddressObject() }
-        addresses.map { address -> address?.employeeId = employeeId }
-
-
-    }
-
-
-
-
-
-
+    fun saveEmployee(name: String, surname: String, age: Int, gender: Gender) =
+        viewModelScope.launch {
+            val employeeId = repository.saveEmployee(Employee(name, surname, age, gender))
+            val addresses = addressForms.map { addressForm -> addressForm.getAddressObject() }
+            addresses.map { address ->
+                address?.let {
+                    address.employeeId = employeeId
+                    repository.saveAddress(address)
+                }
+            }
+        }
 }

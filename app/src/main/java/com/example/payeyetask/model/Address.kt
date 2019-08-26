@@ -15,12 +15,13 @@ import androidx.room.PrimaryKey
     )]
 )
 data class Address(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long,
     val street: String,
     val building: String,
     val apartmentNo: Int,
     val city: String,
     val zipCode: String,
-    var employeeId: Long
-)
+    var employeeId: Long?
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Long? = null
+}
