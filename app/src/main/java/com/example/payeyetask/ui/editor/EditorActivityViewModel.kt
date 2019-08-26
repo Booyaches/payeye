@@ -21,6 +21,7 @@ class EditorActivityViewModel(
     val employeeData = MutableLiveData<Employee>()
     val employeeAddresses = MutableLiveData<List<Address>>()
     val formValidator = MutableLiveData<Boolean>()
+    val deleteEmployee = MutableLiveData<Void>()
 
     fun updateEmployee(name: String, surname: String, age: String, gender: Gender) = viewModelScope.launch {
         if(!FormValidator.validateForm(name, surname, age, addressForms)) {
@@ -46,5 +47,13 @@ class EditorActivityViewModel(
         employeeAddresses.postValue(addresses)
     }
 
-
+    fun deleteEmployee() {
+        viewModelScope.launch {
+            employeeData.value?.let {
+                repository.deleteEmployee(it)
+                repository.removeAllEmployeeAddresses(it.id!!)
+                deleteEmployee.postValue(null)
+            }
+        }
+    }
 }

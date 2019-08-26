@@ -73,10 +73,17 @@
                 android:orientation="vertical"/>
 
         <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:text="@string/btn_delete"
+                android:layout_marginTop="@dimen/editor_input_margin_top"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+        <Button
                 android:id="@+id/btn_add_address"
                 android:layout_width="match_parent"
                 android:text="@string/btn_add_address"
-                android:layout_marginTop="@dimen/editor_input_margin_top"
                 android:layout_height="wrap_content"/>
         <Button
                 android:id="@+id/btn_save"

@@ -1,6 +1,7 @@
 package com.example.payeyetask.persistance.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.payeyetask.model.Employee
@@ -20,4 +21,8 @@ interface EmployeeDAO {
 
     @Query("UPDATE employee SET name = :name , surname = :surname, age = :age, gender = :gender WHERE id = :id")
     suspend fun updateEmployee(id: Long, name: String, surname: String, age: Int, gender: Gender)
+
+    @Delete
+    suspend fun deleteEmployee(employee: Employee)
+
 }

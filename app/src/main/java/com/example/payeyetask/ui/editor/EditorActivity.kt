@@ -4,8 +4,10 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.view.View.VISIBLE
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import com.example.payeyetask.R
 import com.example.payeyetask.model.Address
 import com.example.payeyetask.model.Gender
@@ -25,6 +27,7 @@ class EditorActivity : FormActivity<EditorActivityViewModel>(){
         initSpinner()
         initListeners()
         initEditorFields()
+        btn_delete.visibility = VISIBLE
     }
 
     private fun initEditorFields(){
@@ -36,6 +39,7 @@ class EditorActivity : FormActivity<EditorActivityViewModel>(){
     private fun initListeners(){
         btn_add_address.setOnClickListener { addAddressForm(null) }
         btn_save.setOnClickListener { updateEmployee() }
+        btn_delete.setOnClickListener { viewModel.deleteEmployee() }
     }
 
     override fun bindViewHolder() {
@@ -55,6 +59,9 @@ class EditorActivity : FormActivity<EditorActivityViewModel>(){
                 this.finish()
             }
         })
+        viewModel.deleteEmployee.observe(this, Observer {
+            this.finish()
+        })
     }
 
     private fun addAddressForm(address: Address?){
@@ -72,6 +79,5 @@ class EditorActivity : FormActivity<EditorActivityViewModel>(){
             et_age.editableText.toString(),
             Gender.values()[spinner_gender.selectedItemPosition]
         )
-        this.finish()
     }
 }
