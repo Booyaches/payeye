@@ -14,7 +14,8 @@ open class EmployeesApplication : Application() {
             listOf(
                 modules.persistenceModule,
                 modules.dashboardModule,
-                modules.editorModule
+                modules.editorModule,
+                modules.creatorModule
             )
         )
     }

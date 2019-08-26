@@ -10,7 +10,7 @@ import com.example.payeyetask.view.AddressForm
 import kotlinx.android.synthetic.main.activity_editor.*
 import org.koin.android.ext.android.inject
 
-class EditorActivity : BaseActivity<EditorActivityViewModel>(){
+class CreatorActivity : BaseActivity<EditorActivityViewModel>(){
     override val layoutId = R.layout.activity_editor
     override val viewModel: EditorActivityViewModel by inject()
 

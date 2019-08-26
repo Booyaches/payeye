@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/editor_margin"
             android:orientation="vertical"
-            tools:context=".ui.editor.EditorActivity">
+            tools:context=".ui.creator.EditorActivity">
 
 
         <com.google.android.material.textfield.TextInputLayout

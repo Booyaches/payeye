@@ -9,7 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.payeyetask.R
 import com.example.payeyetask.ui.base.BaseActivity
-import com.example.payeyetask.ui.editor.EditorActivity
+import com.example.payeyetask.ui.creator.CreatorActivity
+import com.example.payeyetask.ui.creator.EditorActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -31,7 +32,7 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     private fun initListeners(){
         fab_add_employee.setOnClickListener {
-            val intent = Intent(this, EditorActivity::class.java)
+            val intent = Intent(this, CreatorActivity::class.java)
             startActivity(intent)
         }
     }

@@ -12,7 +12,7 @@ interface EmployeeDAO {
     suspend fun addNewEmployee(employee: Employee) : Long
 
     @Query("SELECT * from employee where id = :id")
-    suspend fun getEmployeeById(id: Int): Employee?
+    suspend fun getEmployeeById(id: Long): Employee?
 
     @Query("SELECT * from employee")
     suspend fun getAllEmployees(): List<Employee>

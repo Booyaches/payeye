@@ -9,9 +9,9 @@ import com.example.payeyetask.view.AddressForm
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
-class EditorActivityViewModel(
+class CreatorActivityViewModel(
     application: Application,
-    private val repository: EditorActivityRepository,
+    private val repository: CreatorActivityRepository,
     private val coroutineDispatcher: CoroutineDispatcher
 ) : BaseViewModel(application, coroutineDispatcher) {
 
