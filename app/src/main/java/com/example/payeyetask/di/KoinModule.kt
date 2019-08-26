@@ -15,26 +15,23 @@ import org.koin.dsl.module.module
 
 class KoinModule {
 
-    private val coroutineDispatcher = Dispatchers.IO
-
     val persistenceModule = module {
         single { EmployeeDatabase.getDatabase(androidContext()) }
     }
 
     val dashboardModule = module {
         factory { MainActivityRepository(get() as EmployeeDatabase)}
-        viewModel { MainActivityViewModel(androidApplication(), get() as MainActivityRepository, coroutineDispatcher) }
+        viewModel { MainActivityViewModel(androidApplication(), get() as MainActivityRepository) }
     }
 
     val creatorModule = module{
         factory { CreatorActivityRepository(get() as EmployeeDatabase) }
-        viewModel { CreatorActivityViewModel(androidApplication(), get() as CreatorActivityRepository, coroutineDispatcher) }
+        viewModel { CreatorActivityViewModel(androidApplication(), get() as CreatorActivityRepository) }
     }
 
     val editorModule = module{
         factory { EditorActivityRepository(get() as EmployeeDatabase)}
-        viewModel { EditorActivityViewModel(androidApplication(), get() as EditorActivityRepository, coroutineDispatcher) }
+        viewModel { EditorActivityViewModel(androidApplication(), get() as EditorActivityRepository) }
     }
 
-    val editEmployeeModule = module { }
 }

@@ -11,10 +11,8 @@ import kotlinx.coroutines.launch
 
 class CreatorActivityViewModel(
     application: Application,
-    private val repository: CreatorActivityRepository,
-    private val coroutineDispatcher: CoroutineDispatcher
-) : BaseViewModel(application, coroutineDispatcher) {
-
+    private val repository: CreatorActivityRepository
+) : BaseViewModel(application) {
     val addressForms = mutableListOf<AddressForm>()
 
     fun saveEmployee(name: String, surname: String, age: Int, gender: Gender) =

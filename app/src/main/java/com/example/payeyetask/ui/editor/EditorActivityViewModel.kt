@@ -14,14 +14,11 @@ import kotlinx.coroutines.launch
 
 class EditorActivityViewModel(
     application: Application,
-    private val repository: EditorActivityRepository,
-    private val coroutineDispatcher: CoroutineDispatcher
-) : BaseViewModel(application, coroutineDispatcher) {
-
+    private val repository: EditorActivityRepository
+) : BaseViewModel(application) {
     val addressForms = mutableListOf<AddressForm>()
     val employeeData = MutableLiveData<Employee>()
     val employeeAddresses = MutableLiveData<List<Address>>()
-
 
     fun updateEmployee(name: String, surname: String, age: Int, gender: Gender) = viewModelScope.launch {
         repository.updateEmployee(employeeData.value?.id!!, name, surname, age, gender)
@@ -41,10 +38,4 @@ class EditorActivityViewModel(
         employeeData.postValue(employee)
         employeeAddresses.postValue(addresses)
     }
-
-
-
-
-
-
 }
