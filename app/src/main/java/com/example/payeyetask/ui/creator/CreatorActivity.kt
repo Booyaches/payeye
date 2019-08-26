@@ -1,23 +1,15 @@
 package com.example.payeyetask.ui.creator
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.lifecycle.Observer
-import com.example.payeyetask.R
 import com.example.payeyetask.model.Gender
-import com.example.payeyetask.ui.base.BaseActivity
 import com.example.payeyetask.ui.base.FormActivity
 import com.example.payeyetask.view.AddressForm
 import kotlinx.android.synthetic.main.activity_editor.*
 import org.koin.android.ext.android.inject
 
 class CreatorActivity : FormActivity<CreatorActivityViewModel>() {
-    override val layoutId = R.layout.activity_editor
     override val viewModel: CreatorActivityViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {

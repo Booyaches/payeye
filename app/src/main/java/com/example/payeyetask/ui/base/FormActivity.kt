@@ -7,6 +7,7 @@ import com.example.payeyetask.R
 import kotlinx.android.synthetic.main.activity_editor.*
 
 abstract class FormActivity<VIEW_MODEL_TYPE : BaseViewModel> : BaseActivity<VIEW_MODEL_TYPE>() {
+    override val layoutId = R.layout.activity_editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

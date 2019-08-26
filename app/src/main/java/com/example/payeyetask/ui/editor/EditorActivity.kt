@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_editor.*
 import org.koin.android.ext.android.inject
 
 class EditorActivity : FormActivity<EditorActivityViewModel>(){
-    override val layoutId = R.layout.activity_editor
     override val viewModel: EditorActivityViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
