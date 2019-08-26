@@ -2,7 +2,6 @@ package com.example.payeyetask.ui.creator
 
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
@@ -33,8 +32,8 @@ class EditorActivity : BaseActivity<EditorActivityViewModel>(){
     }
 
     private fun initListeners(){
-        btn_add_address.setOnClickListener {  }
-        btn_save.setOnClickListener { saveEmployee() }
+        btn_add_address.setOnClickListener { addAddressForm(null) }
+        btn_save.setOnClickListener { updateEmployee() }
     }
 
     private fun initSpinner() = ArrayAdapter.createFromResource(
@@ -55,20 +54,20 @@ class EditorActivity : BaseActivity<EditorActivityViewModel>(){
         })
         viewModel.employeeAddresses.observe(this, Observer {
             it.forEach{address -> addAddressForm(address)}
-
         })
     }
 
-    private fun addAddressForm(address: Address){
+    private fun addAddressForm(address: Address?){
         val addressForm = AddressForm(this)
         ll_addresses.addView(addressForm)
-        addressForm.setAddress(address)
+        address?.let { addressForm.setAddress(it) }
         viewModel.addressForms.add(addressForm)
         scroll_view.fullScroll(View.FOCUS_DOWN)
     }
 
-    private fun saveEmployee(){
-        viewModel.saveEmployee(
+    private fun updateEmployee(){
+        viewModel.updateEmployee(
+
             et_name.editableText.toString(),
             et_surname.editableText.toString(),
             Integer.parseInt(et_age.editableText.toString()),

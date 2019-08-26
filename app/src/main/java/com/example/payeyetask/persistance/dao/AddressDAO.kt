@@ -13,4 +13,7 @@ interface AddressDAO {
 
     @Query("SELECT * FROM address WHERE employeeId = :employeeId")
     suspend fun getEmployeesAddresses(employeeId: Long): List<Address>?
+
+    @Query("DELETE FROM address WHERE employeeId = :id")
+    suspend fun removeAllAddressesForId(id: Long)
 }

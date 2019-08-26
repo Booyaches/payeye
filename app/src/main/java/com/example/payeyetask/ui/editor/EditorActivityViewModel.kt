@@ -22,10 +22,17 @@ class EditorActivityViewModel(
     val employeeData = MutableLiveData<Employee>()
     val employeeAddresses = MutableLiveData<List<Address>>()
 
-    fun saveEmployee(name: String, surname: String, age: Int, gender: Gender) = viewModelScope.launch {
-        val employeeId = repository.saveEmployee(Employee(name, surname, age, gender))
+
+    fun updateEmployee(name: String, surname: String, age: Int, gender: Gender) = viewModelScope.launch {
+        repository.updateEmployee(employeeData.value?.id!!, name, surname, age, gender)
+        repository.removeAllEmployeeAddresses(employeeData.value?.id!!)
         val addresses = addressForms.map { addressForm -> addressForm.getAddressObject() }
-        addresses.map { address -> address?.employeeId = employeeId }
+        addresses.map { address ->
+            address?.let {
+                address.employeeId = employeeData.value?.id!!
+                repository.saveAddress(address)
+            }
+        }
     }
 
     fun getEmployeeData(id: Long) = viewModelScope.launch {

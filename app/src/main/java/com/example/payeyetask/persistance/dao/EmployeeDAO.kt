@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.payeyetask.model.Employee
+import com.example.payeyetask.model.Gender
 
 @Dao
 interface EmployeeDAO {
@@ -16,4 +17,7 @@ interface EmployeeDAO {
 
     @Query("SELECT * from employee")
     suspend fun getAllEmployees(): List<Employee>
+
+    @Query("UPDATE employee SET name = :name , surname = :surname, age = :age, gender = :gender WHERE id = :id")
+    suspend fun updateEmployee(id: Long, name: String, surname: String, age: Int, gender: Gender)
 }
