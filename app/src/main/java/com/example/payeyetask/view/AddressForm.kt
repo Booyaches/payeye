@@ -38,15 +38,18 @@ class AddressForm @JvmOverloads constructor(
     }
 
 
-    fun getAddressObject(): Address? {
-        return Address(
+    fun getAddressObject() = if (isFormValid())
+        Address(
             streetEt.editableText.toString(),
             Integer.parseInt(buildingEt.editableText.toString()),
             Integer.parseInt(apartamentEt.editableText.toString()),
             cityEt.editableText.toString(),
-            zipEt.editableText.toString(), null
+            zipEt.editableText.toString(),
+            null
         )
-    }
+    else
+        null
+
 
     fun setAddress(address: Address) {
         streetEt.text = SpannableStringBuilder(address.street)

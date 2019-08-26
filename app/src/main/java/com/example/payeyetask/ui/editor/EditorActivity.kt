@@ -5,7 +5,6 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
-import com.example.payeyetask.R
 import com.example.payeyetask.model.Address
 import com.example.payeyetask.model.Gender
 import com.example.payeyetask.ui.base.FormActivity
