@@ -19,6 +19,7 @@ abstract class EmployeeDatabase : RoomDatabase() {
     abstract fun addressDao(): AddressDAO
 
     companion object {
+        var TEST_MODE = false
 
         @Volatile
         private var INSTANCE: EmployeeDatabase? = null
@@ -29,11 +30,18 @@ abstract class EmployeeDatabase : RoomDatabase() {
             if (tmpInstance != null)
                 return tmpInstance
             synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    EmployeeDatabase::class.java,
-                    DATABASE_NAME
-                ).build()
+                val instance = if (TEST_MODE){
+                    Room.inMemoryDatabaseBuilder(
+                        context,
+                        EmployeeDatabase::class.java
+                    ).allowMainThreadQueries().build()
+                } else {
+                    Room.databaseBuilder(
+                        context,
+                        EmployeeDatabase::class.java,
+                        DATABASE_NAME
+                    ).build()
+                }
                 INSTANCE = instance
                 return instance
             }
