@@ -1,8 +1,8 @@
 <h1>PayEye Recruitment Task</h1>
 
-In order to open the project simply clone the repository and open it though Android Studio. 
+In order to open the project simply clone the repository and open it with Android Studio. 
 
-If you wish only to run the application without builidng it locally, copy the PayEyeTask.apk file from the top level directory to your device and install the app.
+If you wish to only run the application without builidng it locally, copy the PayEyeTask.apk file from the top level directory to your device and install the app.
 
 Quick manual:
 
