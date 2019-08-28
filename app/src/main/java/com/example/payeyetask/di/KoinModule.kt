@@ -7,11 +7,10 @@ import com.example.payeyetask.ui.dashboard.MainActivityRepository
 import com.example.payeyetask.ui.dashboard.MainActivityViewModel
 import com.example.payeyetask.ui.creator.EditorActivityRepository
 import com.example.payeyetask.ui.creator.EditorActivityViewModel
-import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 class KoinModule {
 

@@ -25,4 +25,7 @@ interface EmployeeDAO {
     @Delete
     suspend fun deleteEmployee(employee: Employee)
 
+    @Query("DELETE FROM employee")
+    suspend fun nukeTable()
+
 }
